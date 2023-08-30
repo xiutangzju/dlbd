@@ -1,6 +1,6 @@
 ### A Demonstration of DLBD: Database Logic Bug Detection System
 
-This repository has the source code for the implementation of various datasets and schemes used in our "[A Demonstration of DLBD: Database Logic Bug Detection System](https://www.vldb.org/pvldb/vol16/p3914-wu.pdf)" VLDB submission.
+This repository contains the source code of the frontend and a portion of the backend code for implementing the various datasets and schemes used in our "[A Demonstration of DLBD: Database Logic Bug Detection System](https://www.vldb.org/pvldb/vol16/p3914-wu.pdf)" VLDB demo paper.
 
 **(1) migrate the database**  
 ```
