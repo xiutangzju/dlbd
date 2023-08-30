@@ -1,0 +1,20 @@
+<form id="form_login" method="post" class="form-horizontal container-fluid" novalidate>
+    {% csrf_token %}
+
+    {% for item in login_form %}
+        <label class="control-label" style="margin-bottom: 5px">{{ item.label }}</label>
+        <div style="margin-bottom: 18px">
+            {{ item }}
+            <span class="error-tips">{{ item.errors.0 }}</span>
+        </div>
+    {% endfor %}
+
+    <div class="form-horizontal" style="float: right; height: 35px">
+        <a id="a_register" style="margin-right: 20px; line-height: 35px">
+            Register
+        </a>
+        <button type="submit" class="btn btn-success btn-database">
+            Login
+        </button>
+    </div>
+</form>

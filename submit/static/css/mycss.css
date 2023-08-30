@@ -1,0 +1,514 @@
+:root {
+    --bg-color: #F5F5F5;
+    --icon-color: black;
+    --grey-color: #BEBEBE;
+    --area-radius: 10px;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.logo {
+    float: left;
+    height: 30px;
+    padding: 12px 8px;
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 10px;
+    color: #000;
+    font-family: "Times New Roman", serif;
+}
+
+.top-layout {
+    border: 0;
+    border-radius: 0;
+    height: 48px;
+    background: var(--bg-color);
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 0;
+}
+
+.top-layout .container-fluid {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.top-layout .dropdown {
+    margin-left: auto;
+}
+
+.home-content {
+    font-family: PingFang SC Regular, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    padding-top: 50px;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.side-layout {
+    height: 100%;
+    text-align: center;
+    background: rgba(245, 245, 245, 1);
+    width: 197px;
+    border-right: 1px solid rgba(204, 204, 204, 1);
+}
+
+.main-body {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    overflow: auto;
+}
+
+.main-body .left-area {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-body .left-area .left-area-top {
+    height: 47%;
+}
+
+.main-body .left-area .left-area-top #area1 {
+    height: 100%;
+}
+
+.main-body .left-area .left-area-bottom {
+    height: 53%;
+    display: flex;
+}
+
+.main-body .left-area .left-area-bottom #area2 {
+    width: 58%;
+}
+
+.main-body .left-area .left-area-bottom #area3 {
+    width: 42%;
+}
+
+.main-body .right-area {
+    width: 35%;
+}
+
+.left-col {
+    height: 100%;
+    position: fixed;
+    padding-right: 1px;
+    padding-left: 4px;
+    padding-bottom: 36px;
+}
+
+.right-col {
+    height: 100%;
+    position: fixed;
+    padding-left: 2px;
+    padding-right: 4px;
+    padding-bottom: 33px;
+}
+
+.all-block {
+    background: white;
+    overflow: auto;
+}
+
+.all-top-block {
+    border-bottom-left-radius: var(--area-radius);
+    border-bottom-right-radius: var(--area-radius);
+}
+
+.all-bottom-block {
+    height: 46%;
+    padding-left: 3px;
+}
+
+.left-top-block {
+    height: 54%;
+    margin-bottom: 3px;
+}
+
+.right-top-block {
+    height: 100%;
+}
+
+.bottom-block {
+    height: 100%;
+    border-radius: var(--area-radius);
+    padding: 0;
+}
+
+.div1-sidebar {
+    margin-top: 20px;
+    padding: 0;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.div2-sidebar {
+    margin-top: 50px;
+    padding: 0;
+}
+
+.menu-card {
+    border-bottom: 1px solid rgba(229, 229, 229, 1);
+    padding: 12px 16px 32px 12px;
+}
+
+.title-sidebar {
+    color: black;
+    font-size: 16px;
+    line-height: 23px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.title-sidebar .icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+}
+
+.icon-title {
+    margin-right: 1px;
+}
+
+.btn-sidebar {
+    padding: 8px 32px;
+    width: 165px;
+    color: rgba(128, 128, 128, 1);
+    font-size: 14px;
+    line-height: 20px;
+    border-color: rgba(229, 229, 229, 1);
+    display: flex;
+    align-items: center;
+}
+
+.btn-sidebar .icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.btn-sidebar .glyphicon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.btn-margin-top {
+    margin-top: 10px;
+}
+
+.btn-start {
+    padding: 4px 8px;
+    width: 95%;
+    font-size: 18px;
+}
+
+.btn-database {
+    float: right;
+    font-size: 16px;
+    padding: 5px 15px;
+}
+
+.btn-schema-detail {
+    float: right;
+    font-size: 14px;
+    padding: 5px 10px;
+    position: absolute;
+    margin-left: 30px;
+}
+
+.btn-search-space-detail {
+    float: right;
+    font-size: 14px;
+    padding: 5px 10px;
+    position: absolute;
+    margin-left: 20px;
+}
+
+.btn-wrong-detail {
+    padding: 3px 6px;
+}
+
+.checkbox-sidebar {
+    color: rgba(128, 128, 128, 1);
+}
+
+.checkbox-sidebar label {
+    margin-bottom: 8px;
+}
+
+.div-padding-top {
+    padding-top: 5px;
+}
+
+.panel-title-style {
+    text-align: left;
+    font-size: 18px;
+    margin: 5px 5px 5px 10px;
+}
+
+.panel-body-style {
+    padding-top: 5px;
+    padding-bottom: 0;
+}
+
+.txt-overflow {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+textarea {
+    font-size: 14px;
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+    width: 100%;
+    white-space: pre-line;
+    resize: none;
+    border: none;
+}
+
+#execution_plan {
+    font-size: 14px;
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+
+#execution_plan span {
+    display: inline-block;
+    white-space: nowrap;
+    border-bottom: 1px dashed lightgrey;
+    line-height: 140%;
+}
+
+#execution_plan > span:hover {
+    background: #f5f5f5;
+    cursor: default;
+}
+
+.execution-plan-span-focus {
+    background: #f5f5f5;
+    font-weight: bold;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+.td-center {
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+.div-table {
+    max-height: 160px;
+    width: 100%;
+    overflow: auto;
+}
+
+hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 5px;
+}
+
+.ol-wrong-info-reverse {
+    width: 100%;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.li-wrong-info {
+    width: 100%;
+    list-style-type: decimal;
+    list-style-position: inside;
+    height: 25px;
+    color: red;
+}
+
+a:hover, text:hover {
+    cursor: default;
+}
+
+.input-page {
+    position: relative;
+    float: left;
+    display: inline-block;
+    width: 80px;
+    border-radius: 0;
+}
+
+#table_ground_truth > tbody > tr > *:hover,
+#table_query_result > tbody > tr > *:hover {
+    background: #f5f5f5;
+}
+
+.td-wrong {
+    background: #DC143C;
+    color: white;
+}
+
+.td-wrong:hover, .td-wrong-hover {
+    background: #8B0000 !important;
+    color: white !important;
+}
+
+.td-right {
+    background: #98FB98;
+}
+
+.td-right:hover, .td-right-hover {
+    background: #3CB371 !important;
+}
+
+g:focus, button:focus {
+    outline: none !important;
+}
+
+.btn-primary:focus {
+    background: #337ab7;
+    border-color: #2e6da4;
+}
+
+.btn-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-success, .btn-primary, .btn-danger, .btn-warning {
+    color: #fff;
+}
+
+.btn-danger, .btn-warning {
+    background-color: rgba(212, 48, 48, 1);
+}
+
+.btn-success:focus {
+    background: #5cb85c;
+    border-color: #4cae4c;
+}
+
+a:focus {
+    background: white !important;
+}
+
+#table_test_info > tbody > tr > * {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* CSS used here will be applied after bootstrap.css */
+.nav {
+    margin-bottom: 0;
+}
+
+.nav > li.dropdown.open {
+    position: static;
+}
+
+.nav > li.dropdown.open .dropdown-menu {
+    display: table;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    right: 0;
+}
+
+/*.vertical-text {*/
+/*    padding: 10px 0 20px 5px;*/
+/*    float: left;*/
+/*    font-size: 20px;*/
+/*    width: 40px;*/
+/*    position: fixed;*/
+/*    background: #f5f5f5;*/
+/*    writing-mode: vertical-lr; !*从左向右 从右向左是 writing-mode: vertical-rl;*!*/
+/*    !*writing-mode: tb-lr; !*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*!*!*/
+/*}*/
+
+/*实现左右布局*/
+/*float: right; width: 100%; height: 100%; padding-left: 40px*/
+
+.checkbox-bar {
+    margin: 3px auto;
+    text-align: center;
+}
+
+.span-red {
+    color: red;
+}
+
+#icon_connecting {
+    color: #4ece2a;
+    margin-right: 10px;
+    font-size: 18px;
+    line-height: 35px;
+}
+
+.btn-user-info {
+    float: right;
+    vertical-align: middle;
+    border: none;
+    padding: 0;
+    background: none;
+}
+
+.error-tips {
+    color: red;
+    font-size: 14px;
+    position: fixed;
+}
+
+.btn-in-li {
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+}
+
+#tab_connection_choice > li > a:hover {
+    background: none;
+}
+
+.tab-a-focus {
+    border: none !important;
+    color: #1E90FF !important;
+    padding-bottom: 0;
+}
+
+.tab-a {
+    border: none !important;
+    padding-bottom: 0;
+}
+
+.tab-hr-focus {
+    background: #1E90FF;
+    height: 1px;
+    margin-top: 0 !important;
+}
+
+.tab-hr {
+    height: 1px;
+    margin-top: 0 !important;
+}
+
+#table_bug_detail th {
+    padding: 14px 15px !important;
+}

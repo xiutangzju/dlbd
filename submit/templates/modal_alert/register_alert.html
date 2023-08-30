@@ -1,0 +1,17 @@
+<form id="form_register" method="post" class="form-horizontal container-fluid" novalidate>
+    {% csrf_token %}
+
+    {% for item in register_form %}
+        <label class="control-label" style="margin-bottom: 5px">{{ item.label }}</label>
+        <div style="margin-bottom: 18px">
+            {{ item }}
+            <span class="error-tips">{{ item.errors.0 }}</span>
+        </div>
+    {% endfor %}
+
+    <div class="form-horizontal" style="float: right; height: 35px">
+        <button type="submit" class="btn btn-success btn-database">
+            Register
+        </button>
+    </div>
+</form>

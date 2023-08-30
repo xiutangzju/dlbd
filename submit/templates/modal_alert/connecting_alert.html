@@ -1,0 +1,72 @@
+<div>
+    <!--选择待连接的数据库系统类型-->
+    <div class="form-horizontal container-fluid">
+        <div class="form-group" style="margin-bottom: 5px">
+            <label class="col-sm-3 control-label">Data Source:</label>
+            <div class="col-sm-9">
+                <select class="form-control" id="select_data_source">
+                    {% for item in data_source %}
+                        <option value={{ item.0 }}>{{ item.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+    <hr/>
+
+    <div style="margin-top: 15px">
+        <ul id="tab_connection_choice" class="nav nav-tabs" role="tablist" style="border-bottom: none">
+            <li role="presentation" class="active col-sm-6" style="text-align: center; padding: 0; margin-bottom: 10px">
+                <a href="#user_database" aria-controls="user_database" role="tab" data-toggle="tab" class="tab-a-focus">
+                    Connecting to my public database
+                </a>
+                <hr class="tab-hr-focus">
+            </li>
+            <li role="presentation" class="col-sm-6" style="text-align: center; padding: 0">
+                <a href="#server_database" aria-controls="server_database" role="tab" data-toggle="tab" class="tab-a">
+                    Connecting to the server side database
+                </a>
+                <hr class="tab-hr">
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="user_database">
+                <form id="form_public_database" method="post" class="form-horizontal container-fluid" novalidate>
+                    {% csrf_token %}
+
+                    {% for item in data_source_form %}
+                        <div class="form-group" style="margin-bottom: 18px">
+                            <label class="col-sm-3 control-label">{{ item.label }}</label>
+                            <div class="col-sm-9">
+                                {{ item }}
+                                <span class="error-tips">{{ item.errors.0 }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="form-horizontal" style="float: right; height: 35px">
+                        <span id="icon_connecting"></span>
+                        <button type="submit" class="btn btn-primary btn-database">
+                            OK
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="server_database">
+                <div class="form-horizontal container-fluid">
+                    <label>Input database name(Not required):</label>
+                    <input id="input_database_name" class="form-control" placeholder="database name">
+                    <button id="btn_submit_database_name" class="btn btn-success btn-database btn-margin-top">
+                        OK
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

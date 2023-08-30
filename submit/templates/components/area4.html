@@ -1,0 +1,33 @@
+<div style="display: flex; flex-direction: column; border-left: 1px solid rgba(229, 229, 229, 1); height: 100%;">
+    <div style="display: flex; align-items: center; padding: 13px 16px; border-bottom: 1px solid rgba(229, 229, 229, 1);">
+        <h4 style="margin: 0; white-space: nowrap;">Detected Bugs</h4>
+    </div>
+    <div class="text-center" style="flex: 1; display: flex; flex-direction: column; overflow: auto;">
+        <div style="flex: 1">
+            <table id="table_wrong_info" class="table table-hover" style="table-layout: fixed; font-size: 13px; color: rgba(128, 128, 128, 1); font-weight: 400;">
+                <tbody>
+                <tr class="form-group" style="color: #000;">
+                    <th class="col-sm-2 text-center" style="border: unset; font-size: 13px; font-weight: 400;">Severity</th>
+                    <th class="col-sm-1 text-center" style="border: unset; font-size: 13px; font-weight: 400;">ID</th>
+                    <th class="col-sm-2 text-center" style="border: unset; font-size: 13px; font-weight: 400;">Category</th>
+                    <th class="col-sm-3 text-center" style="border: unset; font-size: 13px; font-weight: 400;">Operator</th>
+                    <th class="col-sm-2 text-center" style="border: unset; font-size: 13px; font-weight: 400;">Status</th>
+                    <th class="col-sm-2 text-center" style="border: unset; font-size: 13px; font-weight: 400;">Detail</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- 分页列表 -->
+    <div style="display: inline-flex; align-items: center; position: relative; padding: 12px; margin: 0 auto; z-index: 999;">
+        <div style="cursor: pointer;"><a href="#"><img style="width: 20px; height: 20px;" src="../../static/img/top_page.png" alt=""></a></div>
+        <div style="cursor: pointer;"><a href="#"><img style="width: 20px; height: 20px;" src="../../static/img/left_arrow.png" alt=""></a></div>
+        <!--            <div class="active"><a href="#">1</a></div>-->
+        <form style="float: left; margin: 0 16px;" method="get">
+            <input name="page" type="text" placeholder="1" style="height: 28px; border-radius: 4px; border: 1px solid rgba(229, 229, 229, 1); width: 50px; text-align: center;"/>
+            <button style="background: rgba(42, 130, 228, 1); color: #fff; font-size: 13px; font-weight: 600; border-radius: 4px; width: 36px; height: 27px; display: flex; align-items: center; justify-content: center; position: absolute; right: -60px; top: 12px; border: unset;" type="submit">Go</button>
+        </form>
+        <div style="cursor: pointer;"><a href="#"><img style="transform: rotate(180deg); width: 20px; height: 20px;" src="../../static/img/left_arrow.png" alt=""></a></div>
+        <div style="cursor: pointer;"><a href="#"><img style="transform: rotate(180deg); width: 20px; height: 20px;" src="../../static/img/top_page.png" alt=""></a></div>
+    </div>
+</div>

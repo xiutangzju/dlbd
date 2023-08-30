@@ -1,0 +1,24 @@
+{% load static %}
+{% for bug in bug_list %}
+    <tr class="form-group tr-wrong" bug_id="{{ bug.bug_id }}">
+        <td>
+            <img src="{% static 'img/S' %}{{ bug.severity }}.png">
+        </td>
+        <td>{{ bug.bug_id }}</td>
+        <td>{{ bug.category }}</td>
+        <td>{{ bug.operator }}</td>
+        <td>
+            {% if bug.status == True %}
+                Fixed
+            {% else %}
+                Unfixed
+            {% endif %}
+        </td>
+        <td style="padding: 5px 8px">
+            <button class="btn btn-primary btn-wrong-detail" data-toggle="modal" data-target="#modal_wrong_detail"
+                    bug_id="{{ bug.id }}">
+                Detail
+            </button>
+        </td>
+    </tr>
+{% endfor %}

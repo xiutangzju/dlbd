@@ -1,0 +1,63 @@
+<div style="display: flex; flex-direction: column; height: 100%; border-bottom: 1px solid rgba(229, 229, 229, 1);">
+    <div style="display: flex; align-items: center; padding: 13px 16px; border-bottom: 1px solid rgba(229, 229, 229, 1); justify-content: space-between">
+        <h4 style="margin: 0; white-space: nowrap;">Database Schema Graph</h4>
+    </div>
+    <div style="border-bottom: 1px solid rgba(229, 229, 229, 1); display: flex; align-items: center; padding: 8px 16px;">
+        <div role="tablist" style="display: flex; border: unset; align-items: center; width: 100%; flex-wrap: wrap;">
+            {% for table in tables %}
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding: 0 10px">
+                    {{ table.name }}
+                </a>
+                <div class="dropdown-menu" style="padding: 0">
+                    <table class="table" style="margin-bottom: 0">
+                        <tbody>
+                        <tr>
+                            <th>Column</th>
+                            {% for node in table.nodes %}
+                            {% if forloop.counter > 1 %}
+                            <td>{{ node.name }}</td>
+                            {% endif %}
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <th>Data Type</th>
+                            {% for node in table.nodes %}
+                            {% if forloop.counter > 1 %}
+                            <td>{{ node.data_type }}</td>
+                            {% endif %}
+                            {% endfor %}
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="container-fluid" style="display: flex; flex: 1;;">
+        <div id="div_schema_graph" style="flex: 1">
+        </div>
+        <div style="width: 220px; display: inline-flex; flex-direction: column; justify-content: center;">
+            <div id="table_node_info" style="font-size: 14px;">
+                <div style="height: 28px; line-height: 28px; border-bottom: 1px solid rgba(229, 229, 229, 1);">
+                    <span>Node Name:</span>
+                    <span id="node_name" style="color: rgba(128, 128, 128, 1);"></span>
+                </div>
+                <div style="height: 28px; line-height: 28px; border-bottom: 1px solid rgba(229, 229, 229, 1);">
+                    <span>Node Type:</span>
+                    <span id="node_type" style="color: rgba(128, 128, 128, 1);"></span>
+                </div>
+                <div style="height: 28px; line-height: 28px; border-bottom: 1px solid rgba(229, 229, 229, 1);">
+                    <span>Belong To:</span>
+                    <span id="table_name" style="color: rgba(128, 128, 128, 1);"></span>
+                </div>
+                <div style="height: 28px; line-height: 28px; border-bottom: 1px solid rgba(229, 229, 229, 1);">
+                    <span>Data Type:</span>
+                    <span id="data_type" style="color: rgba(128, 128, 128, 1);"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

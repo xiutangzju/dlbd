@@ -1,0 +1,332 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DLBD</title>
+    <link rel="stylesheet" href="{% static 'plugins/bootstrap-3.4.1/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mycss.css' %}">
+    {% block css %}{% endblock %}
+</head>
+<body>
+<!--顶部LOGO栏-->
+<nav class="navbar navbar-fixed-top top-layout">
+    <div class="container-fluid">
+        <div class="logo">DLBD</div>
+        <!--用户信息的下拉菜单-->
+        <div class="dropdown" style="width: 100px; float: right; margin-right: 20px;">
+            <button id="dropdown_user_info" class="btn-user-info" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                <img src="../static/img/user.png">
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdown_user_info" style="min-width: 100px; background: #F5F5F5">
+                <li style="width: 100px">
+                    <button id="btn_login" class="btn-in-li" data-toggle="modal">
+                        Login
+                    </button>
+                </li>
+                <li style="width: 100px">
+                    <button id="btn_register" class="btn-in-li" data-toggle="modal" data-target="#modal_register">
+                        Register
+                    </button>
+                </li>
+                <hr>
+                <li style="width: 100px">
+                    <button id="btn_logout" class="btn-in-li" style="color: #8a8a8a" disabled>
+                        Logout
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!--主面板-->
+<div class="home-content">
+    <!--侧边导航栏-->
+    <div class="side-layout">
+        <!--连接数据库部分-->
+        <div class="menu-card">
+            <p class="title-sidebar">
+                <img class="icon" src="../static/img/conntction.png" alt="">
+                <span>Connection</span>
+            </p>
+            <button id="btn_connecting" class="btn btn-default btn-sidebar" type="button">
+                <img class="icon" src="../static/img/link.png">
+                Connecting
+            </button>
+        </div>
+
+        <!--数据生成部分-->
+        <div class="menu-card">
+            <p class="title-sidebar">
+                <img class="icon" src="../static/img/database.png">
+                <span>Database</span>
+            </p>
+
+            <input id="dataset_upload" type="file" accept=".csv" style="display: none">
+            <button id="btn_dataset_upload" class="btn btn-default btn-sidebar" type="button">
+                <img class="icon" src="../static/img/upload.png">
+                Dataset
+            </button>
+
+            <button id="btn_generate" class="btn btn-default btn-success btn-sidebar btn-margin-top">
+                <img class="icon" src="../static/img/success.png">
+                Generate
+            </button>
+
+            <button id="btn_autogenerate" class="btn btn-default btn-primary btn-sidebar btn-margin-top">
+                <span class="glyphicon glyphicon-refresh icon"></span>
+                Autogenerate
+            </button>
+        </div>
+
+        <!--修改参数部分-->
+        <div class="menu-card">
+            <p class="title-sidebar">
+                <img class="icon" src="../static/img/check_bugs.png">
+                <span>Check Bugs</span>
+            </p>
+            <div class="checkbox checkbox-sidebar" style="text-align: left">
+                <label>
+                    <input type="checkbox">
+                    Noise Injection
+                </label>
+                <label>
+                    <input type="checkbox">
+                    Table Join
+                </label>
+                <label>
+                    <input type="checkbox">
+                    Aggregation
+                </label>
+                <label>
+                    <input type="checkbox">
+                    Column Sort
+                </label>
+            </div>
+            <button id="btn_start" class="btn btn-success btn-sidebar">
+                <span class="icon glyphicon glyphicon-play"></span>
+                <span>Start</span>
+            </button>
+            <button id="btn_pause" class="btn btn-warning btn-sidebar" style="margin-top: 5px" disabled>
+                <span class="icon glyphicon glyphicon-pause"></span>
+                <span>Pause</span>
+            </button>
+        </div>
+    </div>
+    <!--主体部分-->
+    <div class="main-body">
+        <div class="left-area">
+            <div class="left-area-top">
+                <div id="area1">
+                    <!--区域1-->
+                    {% block area1 %}
+                    {% endblock %}
+                </div>
+            </div>
+            <div class="left-area-bottom">
+                <div id="area2">
+                    {% block area2 %}{% endblock %}
+                </div>
+                <div id="area3">
+                    {% block area3 %}{% endblock %}
+                </div>
+            </div>
+        </div>
+        <div class="right-area">
+            <div id="area4" style="height: 100%;">
+                <!--区域2-->
+                {% block area4 %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--对话框——基本组件-->
+<div id="modal_for_all" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 id="modal_title" class="modal-title"></h4>
+            </div>
+            <div class="modal-body"></div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!--对话框——由于登录模态框会唤起注册模态框，所以这两个不能用同一个模态框-->
+<div id="modal_register" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document" style="width: 450px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Register</h4>
+            </div>
+            <div class="modal-body"></div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!--对话框——显示bug的详细信息-->
+<div id="modal_wrong_detail" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document" style="width: 1200px">
+        <div class="modal-content" style="border-radius: 12px;">
+            <div class="modal-header" style="padding: 13px 16px; border-bottom: unset;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="opacity: 1;">
+                    <img src="../static/img/close_icon.png" alt="" style="width: 16px; height: 16px;">
+                </button>
+                <h4 style="font-size: 16px;" class="modal-title">Root Cause Analysis</h4>
+            </div>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'plugins/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-3.4.1/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/jquery.form.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/d3.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/echarts.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/components/schema-graph.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/components/search-space-graph.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/home.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/components/area1.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/components/area2.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/components/area3.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/components/area4.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/modal_alert/bug_detail_alert.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/modal_alert/connecting_alert.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/modal_alert/login_alert.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/modal_alert/register_alert.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/util/message_alert.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/util/ajax_load_alert.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/util/md5.js' %}"></script>
+<link rel="stylesheet" href="{% static 'plugins/highlight_js/default.min.css' %}">
+<script src="{% static 'plugins/highlight_js/highlight.min.js' %}"></script>
+
+<!-- and it's easy to individually load additional languages -->
+<script src="{% static 'plugins/highlight_js/go.min.js' %}"></script>
+
+<script>hljs.highlightAll();</script>
+<script type="text/javascript">
+    const data_source = [
+        [0, 'MySQL', '3306', 'jdbc:mysql://'],
+        [0, 'Mariadb', '3306', 'jdbc:mariadb://'],
+        [0, 'TiDB', '3306', 'jdbc:tidb://'],
+        [0, 'PolarDB', '3306', 'jdbc:polardb://'],
+    ];
+    const severity_match = [
+        ["S1(Critical)", "#FF0000"],
+        ["S2(Serious)", "#FF8C00"],
+        ["S3(Non-critical)", "#FFD700"],
+    ];
+    let data;
+    const table_to_table_types = [
+        "inner join",
+        "left outer join",
+        "right outer join",
+        "cross join",
+        "semi join",
+        "anti join"
+    ];
+    const table_to_column_types = [
+        "projection",
+        "group by",
+        "count",
+        "join column",
+        "filter"
+    ];
+    let swatch_color;
+    let is_polling = false, pause_prog, continue_prog;
+    let load_pie_data;
+    let minimal_query = "\nSET optimizer_switch='semijoin=on';\n" +
+        "SELECT t1.c0\n" +
+        "FROM t1\n" +
+        "WHERE (t1.c0 NOT IN (\n" +
+        "SELECT t2.c0\n" +
+        "FROM t1 as t2\n" +
+        "WHERE t2.c0 )) = (t1.c0);\n";
+    let original_query = "\nSET optimizer_switch='semijoin=on';\n" +
+        "SELECT *\n" +
+        "FROM T4\n" +
+        "WHERE T4.goodsName IN (\n" +
+        "SELECT T3.goodsName\n" +
+        "FROM T3\n" +
+        "WHERE (T3.goodsName NOT IN (\n" +
+        "SELECT T3.goodsName\n" +
+        "FROM T3\n" +
+        "WHERE T3.goodsName)) = (T3.goodsName);";
+    let original_execution_plan = "| -> Inner hash join (T3.goodsName = `<subquery2>`.ref1)  (cost=8.25 rows=15)\n" +
+        "-> Table scan on T3  (cost=3.23 rows=15)\n" +
+        "-> Hash\n" +
+        "-> Table scan on <subquery2>  (cost=3.25..3.58 rows=15)\n" +
+        "-> Materialize with deduplication  (cost=1.52..2.62 rows=15)\n" +
+        "-> Filter: (t2.c0 is not null)  (cost=2.58 rows=15)\n" +
+        "-> Table scan on t2  (cost=2.35 rows=15)\n" +
+        "|";
+    let minimal_execution_plan = "| -> Inner hash join (t1.c0 = `<subquery2>`.ref1)  (cost=7.38 rows=6)\n" +
+        "-> Table scan on t1  (cost=0.35 rows=6)\n" +
+        "-> Hash\n" +
+        "-> Table scan on <subquery2>  (cost=0.43..2.58 rows=6)\n" +
+        "-> Materialize with deduplication  (cost=1.38..3.53 rows=6)\n" +
+        "-> Filter: (t2.c0 is not null)  (cost=0.35 rows=6)\n" +
+        "-> Table scan on t2  (cost=0.35 rows=6)\n" +
+        "|";
+    let minimal_ground_truth = [
+        ["t1.c0"]
+    ];
+    let minimal_query_result = [
+        ["t1.c0"],
+        ["1"],
+        ["2"],
+        ["3"]
+    ];
+    let original_ground_truth = [
+        ["goodsName", "price", "orderId"],
+        ["computer", "1400", "34542"],
+        ["coffee", "12", "74535"],
+        ["book", "29", "12409"],
+        ["game", "23", "74512"],
+    ]
+    let original_query_result = [
+        ["goodsName", "price", "orderId"],
+        ["computer", "1400", "34542"],
+        ["radio", "1234", "09812"],
+        ["coffee", "12", "74535"],
+        ["book", "29", "12409"],
+        ["game", "23", "74512"],
+        ["watch", "2800", "12490"],
+        ["mouse", "97", "09134"],
+        ["phone", "2499", "45702"],
+    ]
+    let ground_truth_test1 = [
+        ["first-line"]
+    ];
+    let ground_truth_test2 = [
+        ["second-line"]
+    ];
+    let ground_truth_test6 = [
+        ["sixth-line"]
+    ];
+    let query_result_test1 = [
+        ["first-line"]
+    ];
+    let query_result_test2 = [
+        ["second-line"]
+    ];
+    let query_result_test6 = [
+        ["sixth-line"]
+    ];
+    let bug_id;
+    let sqlfile;
+</script>
+{% block js %}{% endblock %}
+</body>
+</html>

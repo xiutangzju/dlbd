@@ -1,0 +1,91 @@
+<div class="modal-body" style="padding: 0;">
+    <!--主体部分，表格-->
+    <table id="table_bug_detail" class="table table-bordered" style="table-layout: fixed; margin-bottom: 0;"
+           bug_id="{{ bug.id }}" bug_sqlfile = "{{ bug.sqlfile }}">
+        <tr>
+            <th class="col-sm-2 text-left">ID: <span>{{ bug.bug_id }}</span></th>
+            <th class="col-sm-3 text-left">Severity:
+                <span style="color: rgba(128, 128, 128, 1);">
+                                <svg id="svg_severity" width="30" height="14" class="td-center">
+                                    <g>
+                                        <circle r="5" transform="translate(20, 7)" fill="{{ severity_color }}"></circle>
+                                    </g>
+                                </svg>
+                                {{ severity }}
+                            </span>
+            </th>
+            <th class="col-sm-3 text-left">Database: <span style="color: rgba(128, 128, 128, 1);">{{ bug.database }}</span></th>
+            <th class="col-sm-3 text-left">Category: <span style="color: rgba(128, 128, 128, 1);">{{ bug.category }}</span></th>
+            <th class="col-sm-3 text-left">Operator: <span style="color: rgba(128, 128, 128, 1);">{{ bug.operator }}</span></th>
+
+        </tr>
+        <tr>
+            <th colspan="1" class="td-center" style="height: 190px">
+{#                <button id="btn_original_query" class="btn btn-success btn-margin-top"#}
+{#                        style="padding: 5px; border: unset; height: 35px; width: 132px; background: rgba(93, 184, 91, 1); font-size: 13px;">#}
+{#                    <img style="width: 16px; height: 16px;" src="../static/img/ok_icon.png" alt="">#}
+                    Query
+{#                    Original #}
+{#                </button>#}
+{#                <button id="btn_minimal_query" class="btn btn-primary btn-margin-top"#}
+{#                        style="padding: 5px; border: unset; background: rgba(42, 130, 228, 1); height: 35px; width: 132px; font-size: 13px;">#}
+{#                    <span></span>#}
+{#                    Minimal Query#}
+{#                </button>#}
+            </th>
+            <td colspan="2" style="padding: 0; height: 190px">
+                <div style="height: 100%; padding: 14px 16px;">
+                    <div style="font-size: 13px; font-weight: 600; line-height: 20px; margin-bottom: 4px;">Query：</div>
+                    <div id="wrong_detail_query">
+<!--                        这是query的展示-->
+                    </div>
+                </div>
+            </td>
+            <td colspan="2" style="padding: 0; height: 190px">
+                <div style="height: 100%; padding: 14px 16px;">
+                    <div style="font-size: 13px; font-weight: 600; line-height: 20px; margin-bottom: 4px;">Execution Plan：</div>
+                    <div id="execution_plan">
+<!--                        这是执行计划的展示-->
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="3" class="text-center">
+                Highest probability operator of root cause
+            </th>
+            <th colspan="3" class="text-center" style="color: red" id = "table_scan">
+                {{ bug.table_scan }}
+<!--                这是table_scan的展示-->
+            </th>
+        </tr>
+        <tr>
+            <th colspan="3" class="text-center">Ground-truth</th>
+            <th colspan="3" class="text-center">Query Result</th>
+        </tr>
+        <tr>
+            <td colspan="3" style="padding: 0;">
+                <!--真值表格-->
+                <div id="div_ground_truth" class="div-table">
+                    <table id="table_ground_truth" class="table table-bordered"
+                           style="margin-bottom: 0; width: auto">
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </td>
+            <td colspan="3" style="padding: 0">
+                <!--数据库查询结果表格-->
+                <div id="div_query_result" class="div-table">
+                    <table id="table_query_result" class="table table-bordered"
+                           style="margin-bottom: 0; width: auto">
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="modal-footer" style="border-top: unset;">
+    <button id="download" type="button" class="btn btn-primary" style="border: unset; background: rgba(42, 130, 228, 1); height: 36px;">download</button>
+    <button id="btn_retest" type="button" class="btn btn-success" style="border: unset; background: rgba(93, 184, 91, 1); height: 36px;">I have fixed it. Retest!</button>
+</div>
