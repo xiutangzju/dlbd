@@ -11,7 +11,7 @@ class CreateRecords:
         self.bug_id = bug_id
         self.times = times
         self.is_exit = False
-        self.severity = random.randint(1,3)#随机选择严重程度
+        self.severity = random.randint(1,3)
         self.category = ["Optimizer", "Optimizer", "Optimizer", "Optimizer", "Options", "Optimizer", "Storage",
                          "Optimizer"]
         self.operator = ["Table Join", "Aggregation", "Column Sort", "Table Join", "Sort_buffer_size", "Table Join",
