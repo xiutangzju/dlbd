@@ -12,6 +12,6 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-**（3）Open the web page **  
+**(3) open the web page**  
 [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
