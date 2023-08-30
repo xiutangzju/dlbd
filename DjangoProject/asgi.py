@@ -11,7 +11,7 @@ import os
 
 from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter, URLRouter
-from your_app.consumers import YourWebSocketConsumer #这里的yourapp是创建的 Django 应用程序的名称。   这里的YourWebSocketConsumer是你定义的 WebSocket Consumer 类。
+from your_app.consumers import YourWebSocketConsumer 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'DjangoProject.settings')
 
